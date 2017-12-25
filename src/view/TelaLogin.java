@@ -37,7 +37,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jBtnAcessar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Acesso do Sistema");
         setResizable(false);
 
@@ -130,6 +130,10 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(jTextFieldLogin.getText().equals("usuario") && jPasswordField.getText().equals("12345")){
             JOptionPane.showMessageDialog(null, "Bem-Vindo");
+           TelaPrincipal telaPrincipal =  new TelaPrincipal();
+           telaPrincipal.setVisible(true);
+           telaPrincipal.pack();
+            this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Usuario ou senha Incorretos");
         }
