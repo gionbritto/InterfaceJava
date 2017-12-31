@@ -5,6 +5,7 @@
  */
 package view;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -48,6 +49,11 @@ public class TelaLogin extends javax.swing.JFrame {
         jPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordFieldActionPerformed(evt);
+            }
+        });
+        jPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordFieldKeyPressed(evt);
             }
         });
 
@@ -121,14 +127,47 @@ public class TelaLogin extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    /*
+    public boolean aceitaLogin(String usuario, String senha, KeyEvent key){
+        boolean verificacao = false;
+        if(key.equals(KeyEvent.VK_ENTER)){
+            if((usuario.equals("usuario")) && (senha.equals("12345")))
+                JOptionPane.showMessageDialog(null, "Bem Vindo");
+                verificacao = true;
+                abreTelaPrincipal();
+        } else if((usuario != "usuario") || (senha != "12345")){
+            JOptionPane.showMessageDialog(null, "Usuario ou senha incorretos");
+            verificacao = false;
+        }
+        return verificacao;
+    }
+    */
+    
+    public boolean checkLogin(String usuario, String senha){
+        return usuario.equals("usuario") && senha.equals("12345");
+    }
+    public void abreTelaPrincipal(){
+        TelaPrincipal tela = new TelaPrincipal();
+        tela.setVisible(true);
+        this.dispose();
+    }
+    
     private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
         // TODO add your handling code here:
+        if(checkLogin(jTextFieldLogin.getText(), new String(jPasswordField.getPassword()))){
+            
+            JOptionPane.showMessageDialog(null, "Bem Vindo");
+            
+        } else {
+            
+            JOptionPane.showMessageDialog(null, "Dados invalidos");
+            
+        }
     }//GEN-LAST:event_jPasswordFieldActionPerformed
 
     private void jBtnAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAcessarActionPerformed
         // TODO add your handling code here:
-        if(jTextFieldLogin.getText().equals("usuario") && jPasswordField.getText().equals("12345")){
+        if(jTextFieldLogin.getText().equals("usuario") && jPasswordField.getPassword().equals("12345")){
             JOptionPane.showMessageDialog(null, "Bem-Vindo");
            TelaPrincipal telaPrincipal =  new TelaPrincipal();
            telaPrincipal.setVisible(true);
@@ -138,6 +177,11 @@ public class TelaLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usuario ou senha Incorretos");
         }
     }//GEN-LAST:event_jBtnAcessarActionPerformed
+
+    private void jPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldKeyPressed
+       
+        
+    }//GEN-LAST:event_jPasswordFieldKeyPressed
 
     /**
      * @param args the command line arguments
