@@ -157,6 +157,8 @@ public class TelaLogin extends javax.swing.JFrame {
         if(checkLogin(jTextFieldLogin.getText(), new String(jPasswordField.getPassword()))){
             
             JOptionPane.showMessageDialog(null, "Bem Vindo");
+            abreTelaPrincipal();
+            this.dispose();
             
         } else {
             
@@ -167,14 +169,16 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void jBtnAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAcessarActionPerformed
         // TODO add your handling code here:
-        if(jTextFieldLogin.getText().equals("usuario") && jPasswordField.getPassword().equals("12345")){
-            JOptionPane.showMessageDialog(null, "Bem-Vindo");
-           TelaPrincipal telaPrincipal =  new TelaPrincipal();
-           telaPrincipal.setVisible(true);
-           telaPrincipal.pack();
+       if(checkLogin(jTextFieldLogin.getText(), new String(jPasswordField.getPassword()))){
+            
+            JOptionPane.showMessageDialog(null, "Bem Vindo");
+            abreTelaPrincipal();
             this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "Usuario ou senha Incorretos");
+            
+        } else {
+            
+            JOptionPane.showMessageDialog(null, "Dados invalidos");
+            
         }
     }//GEN-LAST:event_jBtnAcessarActionPerformed
 
