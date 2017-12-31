@@ -243,7 +243,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
              
          } else {
             int input = JOptionPane.showConfirmDialog(null, "Deseja realmente apagar?" +
-                     "\n Produto Cod.: " + linhaAExcluir + " Selecionado!",
+                     "\nProduto Cod.: " + linhaAExcluir + " Selecionado!",
                      "Confirmaçao" ,JOptionPane.OK_CANCEL_OPTION); //cancelar retona 2 ok retora 0
             if(input == 0){
                 dtmProdutos.removeRow(linhaAExcluir); //exclui a linha selecionada
